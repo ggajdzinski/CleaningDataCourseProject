@@ -46,3 +46,5 @@ dfDataExtr<-dfDataExtr[,!(names(dfDataExtr) %in% c("Activity"))]
 dfTidy<-dfDataExtr %>% 
         group_by(Subject, ActivityLabel) %>%
         summarise_all("mean")
+## Write data to the disk
+write.table(dfTidy,"TidyData.txt", row.name=FALSE)
